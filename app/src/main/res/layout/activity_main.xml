@@ -12,29 +12,53 @@
         android:id="@+id/ivBTcheck"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/bluetooth_grayicon"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/bluetooth_grayicon" />
 
-    <Switch
-        android:id="@+id/switch1"
+    <ToggleButton
+        android:id="@+id/tBtn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="led1 "
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        android:layout_margin="20dp"
+        android:textOff="안방 전등 OFF"
+        android:textOn="안방 전등 ON" />
 
-    <Switch
-        android:id="@+id/switch2"
+    <ToggleButton
+        android:id="@+id/tBtn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="led2"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        android:layout_margin="20dp"
+        android:textOff="작은방 전등 OFF"
+        android:textOn="작은방 전등 ON" />
 
-    <Switch
-        android:id="@+id/switch3"
+    <ToggleButton
+        android:id="@+id/tBtn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="led3"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        android:layout_margin="20dp"
+        android:textOff="거실 전등 OFF"
+        android:textOn="거실 전등 ON" />
+    <!--
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="led1 "
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="led2"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <Switch
+            android:id="@+id/switch3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="led3"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />-->
 
 </LinearLayout>
 

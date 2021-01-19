@@ -16,6 +16,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,7 +26,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView ivBTCheck;
     BluetoothAdapter bluetoothAdapter;
     static final int REQUEST_ENABLE_BT = 10;
@@ -41,20 +42,28 @@ public class MainActivity extends AppCompatActivity {
     byte[] readBuffer;
     int readBufferPosition;
 
-    //led
+    //light
     String str;
-    Switch led1, led2, led3;
+    //Switch led1, led2, led3;
+    ToggleButton tBtn1, tBtn2, tBtn3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        led1 = findViewById(R.id.switch1);
+       /* led1 = findViewById(R.id.switch1);
         led2 = findViewById(R.id.switch2);
-        led3 = findViewById(R.id.switch3);
-        ivBTCheck = findViewById(R.id.ivBTcheck);
+        led3 = findViewById(R.id.switch3);*/
 
-        led1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        ivBTCheck = findViewById(R.id.ivBTcheck);
+        tBtn1 = findViewById(R.id.tBtn1);
+        tBtn2 = findViewById(R.id.tBtn2);
+        tBtn3 = findViewById(R.id.tBtn3);
+
+        tBtn1.setOnClickListener(this);
+        tBtn2.setOnClickListener(this);
+        tBtn3.setOnClickListener(this);
+        /*led1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -89,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 sendData(str);
             }
         });
-
+*/
         ivBTCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -281,5 +290,21 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
         }
+    }
+
+    @Override
+    public void onClick(View v) {//위젯의 정보를 담음 View v 변수에
+        switch (v.getId()) {
+            case R.id.tBtn1:
+                str = "1"; //안방, 작은방, 거실전등인지만 보내줌 (꺼짐, 켜짐 보내지 않고)
+                break;
+            case R.id.tBtn2:
+                str = "2";
+                break;
+            case R.id.tBtn3:
+                str = "3";
+                break;
+        }
+        sendData(str);
     }
 }
